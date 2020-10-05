@@ -1,0 +1,21 @@
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int right = m + n - 1; //last position
+        int i1 = m - 1; //for nums1 counter
+        int i2 = n - 1; //for nums2 counter
+        while (i1 >= 0 && i2 >= 0) {  
+            if (nums1[i1] >= nums2[i2]) {
+                nums1[right--] = nums1[i1];    
+                i1--;
+            } else {
+                nums1[right--] = nums2[i2];
+                i2--;
+            }
+        }
+        //add remaining elements
+        while (i2 >= 0) {
+            nums1[right--] = nums2[i2--];
+        }
+        
+    }
+}
